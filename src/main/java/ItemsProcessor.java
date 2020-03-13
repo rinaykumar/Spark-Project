@@ -1,26 +1,10 @@
 import builder.ResponseBuilder;
 import builder.ResponseDTO;
-
 import java.util.*;
 
 public class ItemsProcessor {
 
     Date date = new Date();
-
-    public ResponseDTO process(Map<String, String> args) {
-
-        String endpoint = args.get("endpoint");
-
-        // After getting endpoint, either addItem or listItems method is called
-        if (endpoint.equals("addItem")) {
-            return addItems(args);
-        }
-
-        if (endpoint.equals("listItems")) {
-            return listItems(args);
-        }
-        return null;
-    }
 
     public ResponseDTO addItems(Map<String, String> args) {
         // For testing

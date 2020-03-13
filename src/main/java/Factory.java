@@ -1,3 +1,5 @@
+// TODO: Factory to be completely replaced by spark endpoints, then file removed
+
 /*
 import builder.ResponseBuilder;
 import builder.ResponseDTO;

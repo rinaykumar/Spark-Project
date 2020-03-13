@@ -1,42 +1,39 @@
 import static spark.Spark.*;
-
 import java.util.*;
-
 import com.google.gson.*;
 import spark.Request;
 import spark.Response;
 
-
 public class SparkDemo {
 
   public static Map<String, String> processRoute(Request req, Response res) {
+    // Variables
     Set<String> params = req.queryParams();
     Map<String, String> args = new HashMap<String, String>();
 
-    //System.out.println(req.pathInfo());
-
+    // Print out params and put into map
     for (String param : params) {
-      // possible for query param to be an array
       System.out.println(param + " : " + req.queryParamsValues(param)[0]);
       args.put(param, req.queryParamsValues(param)[0]);
     }
-    // do stuff with a mapped version http://javadoc.io/doc/com.sparkjava/spark-core/2.8.0
-    // http://sparkjava.com/documentation#query-maps
-    // print the id query value
-    //System.out.println(req.queryMap().get("id").value());
+
+    // Not sure this is needed:
+    // System.out.println(req.queryMap().get("id").value());
+
     return args;
   }
 
   public static void main(String[] args) {
+    // Variables
     Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .disableHtmlEscaping()
             .create();
-    String json = "";
 
+    // Listen at port 1234
     port(1234);
 
-    // Welcome at root endpoint
+    // root endpoint
     get("/", (req, res) -> "<h2>Welcome to CSC 413 HW2</h2>");
 
     // addItem endpoint
@@ -49,8 +46,19 @@ public class SparkDemo {
     get("/listItems", (req, res) -> {
       ItemsProcessor itemsProcessor = new ItemsProcessor();
       return gson.toJson(itemsProcessor.listItems(SparkDemo.processRoute(req, res))) + " " + gson.toJson(ItemsDAO.getItemsList());
-    });
+    }); // TODO: Instead of grabbing list from ItemsDAO, needs to grab from mongodb?
 
+    // TODO: remaining endpoints and accompanying port over
+    // addPaymentMethod endpoint
+
+    // getAllPaymentMethods endpoint
+
+    // createTransaction endpoint
+
+    // listTransactions endpoint
+
+    // Not sure if needed:
+    /*
     // Slightly more advanced routing
     path("/api", () -> {
       get("/users", (req, res) -> {
@@ -59,5 +67,6 @@ public class SparkDemo {
       get("/posts", SparkDemo::processRoute);
       get("/lambda", (req, res) -> SparkDemo.processRoute(req, res));
     });
+     */
   }
 }

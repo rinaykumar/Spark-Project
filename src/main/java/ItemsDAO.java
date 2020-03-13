@@ -5,6 +5,8 @@ public class ItemsDAO {
     private static ItemsDAO Instance;
     public static List<ItemsDTO> itemsList = new ArrayList<ItemsDTO>();
 
+    // TODO: Instead of a list storing data here, needs to connect to mongodb?
+
     ItemsDAO() {
     }
 
