@@ -17,9 +17,6 @@ public class SparkDemo {
       args.put(param, req.queryParamsValues(param)[0]);
     }
 
-    // Not sure this is needed:
-    // System.out.println(req.queryMap().get("id").value());
-
     return args;
   }
 
@@ -45,8 +42,8 @@ public class SparkDemo {
     // listItems endpoint
     get("/listItems", (req, res) -> {
       ItemsProcessor itemsProcessor = new ItemsProcessor();
-      return gson.toJson(itemsProcessor.listItems(SparkDemo.processRoute(req, res))) + " " + gson.toJson(ItemsDAO.getItemsList());
-    }); // TODO: Instead of grabbing list from ItemsDAO, needs to grab from mongodb?
+      return gson.toJson(itemsProcessor.listItems(SparkDemo.processRoute(req, res))) + "</br>" + ItemsDAO.getItemsList();
+    });
 
     // TODO: remaining endpoints and accompanying port over
     // addPaymentMethod endpoint
@@ -57,16 +54,5 @@ public class SparkDemo {
 
     // listTransactions endpoint
 
-    // Not sure if needed:
-    /*
-    // Slightly more advanced routing
-    path("/api", () -> {
-      get("/users", (req, res) -> {
-        return "This one has a block body";
-      });
-      get("/posts", SparkDemo::processRoute);
-      get("/lambda", (req, res) -> SparkDemo.processRoute(req, res));
-    });
-     */
   }
 }
