@@ -1,6 +1,6 @@
-# HW 1
+# HW 2
 
-Quick notes: https://github.com/brianxautumn/git-demo
+Quick notes: https://github.com/sfsu-csc-413-spring-2020/hw2-codecamp102
 
 ### Group
 - Rinay : items. Branch name: rinay
