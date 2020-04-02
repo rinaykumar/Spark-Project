@@ -1,5 +1,8 @@
-import builder.ResponseBuilder;
-import builder.ResponseDTO;
+package Processor;
+
+import DAO.ItemsDAO;
+import Builder.ResponseBuilder;
+import Builder.ResponseDTO;
 import java.util.*;
 
 public class ItemsProcessor {
@@ -8,7 +11,7 @@ public class ItemsProcessor {
 
     public ResponseDTO addItems(Map<String, String> args) {
         // For testing
-        System.out.println("From ItemsProcessor");
+        System.out.println("From Processor.ItemsProcessor");
         System.out.println("Add Item");
 
         UUID uuid = UUID.randomUUID();
@@ -22,7 +25,7 @@ public class ItemsProcessor {
         ResponseBuilder buildResponse = new ResponseBuilder();
         buildResponse.setDate(date);
         buildResponse.setParams(args);
-        buildResponse.setResponseCode("200 OK");
+        buildResponse.setResponseCode("OK");
         buildResponse.setResponse("Item Added");
 
         return buildResponse.build();
@@ -30,13 +33,13 @@ public class ItemsProcessor {
 
     public ResponseDTO listItems(Map<String, String> args) {
         // For testing
-        System.out.println("From ItemsProcessor");
+        System.out.println("From Processor.ItemsProcessor");
         System.out.println("List Items");
 
         ResponseBuilder buildResponse = new ResponseBuilder();
         buildResponse.setDate(date);
         buildResponse.setParams(args);
-        buildResponse.setResponseCode("200 OK");
+        buildResponse.setResponseCode("OK");
         buildResponse.setResponse("List of Items");
 
         return buildResponse.build();

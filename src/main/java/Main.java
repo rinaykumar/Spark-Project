@@ -1,10 +1,12 @@
 import static spark.Spark.*;
 import java.util.*;
+import DAO.ItemsDAO;
+import Processor.ItemsProcessor;
 import com.google.gson.*;
 import spark.Request;
 import spark.Response;
 
-public class SparkDemo {
+public class Main {
 
   public static Map<String, String> processRoute(Request req, Response res) {
     // Variables
@@ -36,13 +38,13 @@ public class SparkDemo {
     // addItem endpoint
     get("/addItem", (req, res) -> {
       ItemsProcessor itemsProcessor = new ItemsProcessor();
-      return gson.toJson(itemsProcessor.addItems(SparkDemo.processRoute(req, res)));
+      return gson.toJson(itemsProcessor.addItems(Main.processRoute(req, res)));
     });
 
     // listItems endpoint
     get("/listItems", (req, res) -> {
       ItemsProcessor itemsProcessor = new ItemsProcessor();
-      return gson.toJson(itemsProcessor.listItems(SparkDemo.processRoute(req, res))) + "</br>" + ItemsDAO.getItemsList();
+      return gson.toJson(itemsProcessor.listItems(Main.processRoute(req, res))) + "</br>" + ItemsDAO.getItemsList();
     });
 
     // TODO: remaining endpoints and accompanying port over

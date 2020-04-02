@@ -1,3 +1,7 @@
+package DAO;
+
+import DTO.ItemsDTO;
+import Database.DatabaseConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mongodb.client.MongoCollection;
@@ -15,7 +19,7 @@ public class ItemsDAO {
             .disableHtmlEscaping()
             .create();
 
-    ItemsDAO() {
+    public ItemsDAO() {
 
     }
 
