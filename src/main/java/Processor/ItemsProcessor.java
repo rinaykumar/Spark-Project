@@ -1,3 +1,6 @@
+package Processor;
+
+import DAO.ItemsDAO;
 import builder.ResponseBuilder;
 import builder.ResponseDTO;
 

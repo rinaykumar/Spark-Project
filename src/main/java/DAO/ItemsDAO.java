@@ -1,3 +1,7 @@
+package DAO;
+
+import DTO.ItemsDTO;
+
 import java.util.*;
 
 public class ItemsDAO {
@@ -5,7 +9,7 @@ public class ItemsDAO {
     private static ItemsDAO Instance;
     public static List<ItemsDTO> itemsList = new ArrayList<ItemsDTO>();
 
-    ItemsDAO() {
+    public ItemsDAO() {
     }
 
     public static ItemsDAO getInstance(){

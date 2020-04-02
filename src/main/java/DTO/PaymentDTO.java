@@ -1,3 +1,5 @@
+package DTO;
+
 public class PaymentDTO {
     public final String name;
     public final String code;

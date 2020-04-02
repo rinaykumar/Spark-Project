@@ -1,5 +1,9 @@
+package DAO;
+
+import DTO.PaymentDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -8,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class PaymentDAO {
     private static PaymentDAO Instance;
+    public static MongoClient mongoClient = new MongoClient("localhost", 27017);
 
     Gson gson = new GsonBuilder()
             .setPrettyPrinting()
@@ -24,7 +29,7 @@ public class PaymentDAO {
     }
 
     public void addPayment(String name, String machineCode) {
-        MongoDatabase db = DatabaseConnection.mongoClient.getDatabase("HW2Database");
+        MongoDatabase db = mongoClient.getDatabase("HW2Database");
         MongoCollection<Document> PayCollection = db.getCollection("Payments");
 
         // Create new DTO and convert to JSON
@@ -41,7 +46,7 @@ public class PaymentDAO {
 
     public static List<String>getPaymentList(){
         // Connect to mongo
-        MongoDatabase db = DatabaseConnection.mongoClient.getDatabase("HW2Database");
+        MongoDatabase db = mongoClient.getDatabase("HW2Database");
         MongoCollection<Document> PayCollection = db.getCollection("Payments");
 
         // Grab Documents from Collection, remove _id field from Document, put into List<String>
