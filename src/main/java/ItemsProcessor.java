@@ -3,7 +3,7 @@ import builder.ResponseDTO;
 
 import java.util.*;
 
-public class ItemsProcessor extends Factory {
+public class ItemsProcessor {
 
     Date date = new Date();
 

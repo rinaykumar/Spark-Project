@@ -1,3 +1,4 @@
+/* Can be deleted, has no use in current assignment
 import builder.ResponseBuilder;
 import builder.ResponseDTO;
 import java.util.*;
@@ -59,6 +60,7 @@ public class Factory {
                 // Send args map to PaymentProcessor
                 PaymentMethods PaymentMethods = new PaymentMethods();
                 return PaymentMethods.process(args);
+
             case "addItem":
             case "listItems":
                 // Send args map ItemsProcessor
@@ -71,6 +73,8 @@ public class Factory {
                 System.out.println("List Transactions!!!");
                 TransactionProcessor listTransactionProcessor = new TransactionProcessor();
                 return listTransactionProcessor.process(args);
+
+
             case "" :
                 return null;
             default:
@@ -86,3 +90,4 @@ public class Factory {
         }
     }
 }
+*/

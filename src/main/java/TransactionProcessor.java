@@ -2,7 +2,7 @@ import builder.ResponseBuilder;
 import builder.ResponseDTO;
 import java.util.*;
 
-public class TransactionProcessor extends Factory {
+public class TransactionProcessor  {
 
     Date date = new Date();
 
