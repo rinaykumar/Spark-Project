@@ -1,7 +1,7 @@
 import static spark.Spark.*;
 import java.util.*;
-import DAO.ItemsDAO;
-import Processor.ItemsProcessor;
+import DAO.*;
+import Processor.*;
 import com.google.gson.*;
 import spark.Request;
 import spark.Response;
@@ -47,14 +47,29 @@ public class Main {
       return gson.toJson(itemsProcessor.listItems(Main.processRoute(req, res))) + "</br>" + ItemsDAO.getItemsList();
     });
 
-    // TODO: remaining endpoints and accompanying port over
     // addPaymentMethod endpoint
+    get("/addPaymentMethod", (req, res) -> {
+      PaymentMethods PayProcessor = new PaymentMethods();
+      return gson.toJson(PayProcessor.addPay(Main.processRoute(req, res)));
+    });
 
     // getAllPaymentMethods endpoint
+    get("/getAllPaymentMethods", (req, res) -> {
+      PaymentMethods PayProcessor = new PaymentMethods();
+      return gson.toJson(PayProcessor.getPay(Main.processRoute(req, res))) + "</br>" + PaymentDAO.getPaymentList();
+    });
 
     // createTransaction endpoint
+    get("/createTransaction", (req, res) -> {
+      TransactionProcessor transact = new TransactionProcessor();
+      return gson.toJson(transact.createTransaction(Main.processRoute(req, res)));
+    });
 
     // listTransactions endpoint
+    get("/listTransactions", (req, res) -> {
+      TransactionProcessor transact = new TransactionProcessor();
+      return gson.toJson(transact.listTransactions(Main.processRoute(req, res))) + "</br>" + TransactionDAO.transactionList;
+    });
 
   }
 }
