@@ -68,8 +68,7 @@ public class Main {
     // listTransactions endpoint
     get("/listTransactions", (req, res) -> {
       TransactionProcessor transact = new TransactionProcessor();
-      return gson.toJson(transact.listTransactions(Main.processRoute(req, res))) + "</br>" + TransactionDAO.transactionList;
+      return gson.toJson(transact.listTransactions(Main.processRoute(req, res))) + "</br>" + TransactionDAO.listTransaction();
     });
-
   }
 }

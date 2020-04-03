@@ -22,7 +22,8 @@ public class TransactionProcessor  {
     }
 
     public ResponseDTO createTransaction(Map<String, String> args) {
-        TransactionDAO createTransactionDAO = new TransactionDAO();
+        TransactionDAO createTransactionDAO = TransactionDAO.getInstance();
+
         createTransactionDAO.createTransaction(args.get("paymentMethod"),args.get("itemCode"));
 
         // Use response builder to build response

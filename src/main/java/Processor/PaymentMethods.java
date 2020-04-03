@@ -5,7 +5,6 @@ import Builder.ResponseBuilder;
 import Builder.ResponseDTO;
 import java.util.*;
 
-//I'm making the assumption of using PaymentDTO (as a cursor) to access PaymentDAO then return ResponseDTO
 public class PaymentMethods  {
     Date date = new Date();
 
@@ -13,7 +12,7 @@ public class PaymentMethods  {
         UUID uuid = UUID.randomUUID();
         String machineCode = uuid.toString();
 
-        PaymentDAO addPayDAO = new PaymentDAO();
+        PaymentDAO addPayDAO = PaymentDAO.getInstance();
         addPayDAO.addPayment(args.get("method"), machineCode);
 
         args.put("machineCode", machineCode);
