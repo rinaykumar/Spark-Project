@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class TransactionDAO {
 
     private static TransactionDAO Instance;
-    private static List<TransactionDTO> transactionList = new ArrayList<>();
+    public static List<TransactionDTO> transactionList = new ArrayList<>();
 
     public static TransactionDAO getInstance(){
         if(Instance == null){

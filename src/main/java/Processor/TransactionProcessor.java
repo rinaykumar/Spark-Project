@@ -23,7 +23,7 @@ public class TransactionProcessor  {
         return null;
     }
 
-    private ResponseDTO listTransactions(Map<String, String> args) {
+    public ResponseDTO listTransactions(Map<String, String> args) {
 
         // Use response builder to build response
         ResponseBuilder buildResponse = new ResponseBuilder();
@@ -35,7 +35,7 @@ public class TransactionProcessor  {
         return buildResponse.build();
     }
 
-    private ResponseDTO createTransaction(Map<String, String> args) {
+    public ResponseDTO createTransaction(Map<String, String> args) {
         TransactionDAO createTransactionDAO = new TransactionDAO();
         createTransactionDAO.createTransaction(args.get("paymentMethod"),args.get("itemCode"));
 
